@@ -20,7 +20,7 @@ public class TurtleClientTest2 {
 		//turtle.circle(0, 0, 100);
 //		turtle.arc(100,  math.PI/2);
 //		turtle.arc(100,  math.PI/2);
-		turtle.beginFill();
+		turtle.beginFill(); 
 		for (int i =0;i<6;i++)
 		{
 			turtle.set_use_radians(false);
