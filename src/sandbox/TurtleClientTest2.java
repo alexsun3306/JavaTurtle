@@ -13,7 +13,7 @@ import lib.java_turtle.TurtleClient;
 
 public class TurtleClientTest2 {
 
-	
+	//test
 	public	static	String	Polygon(Turtle turtle)
 	{
 		turtle.setPenRadius(10);
