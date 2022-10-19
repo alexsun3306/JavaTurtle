@@ -1,5 +1,6 @@
 package lib.edu.princeton.stdlib;
 
+
 /******************************************************************************
  *  Compilation:  javac BinaryIn.java
  *  Execution:    java BinaryIn input output

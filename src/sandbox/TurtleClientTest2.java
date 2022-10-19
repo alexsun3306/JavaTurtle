@@ -750,7 +750,7 @@ public class TurtleClientTest2 {
 	{
 		// TODO Auto-generated method stub
 		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200});
-		tc.setDrawFunction(t->Polygon(t));
+		tc.setDrawFunction(t->coordinate_demo(t));
 		/*
 		tc.setDrawFunction(t->coordinate_demo(t));
 		tc.setDrawFunction(t->turtle_forward_backward_demo(t));
