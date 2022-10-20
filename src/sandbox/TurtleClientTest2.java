@@ -54,12 +54,12 @@ public class TurtleClientTest2 {
 	public	static	String	circle_demo_1(Turtle turtle)
 	{
 		turtle.setPenColor(new Color(0,0,0));
-		turtle.circle(-100, 0, 25, false); /*not filled*/
+		turtle.circle(-100, 50, 25, false); /*not filled*/
 		turtle.setPenColor(new Color(255,0,0));
-		turtle.circle(-0, 0, 25, true);/*filled*/
+		turtle.circle(-0, 0, 50, true);/*filled*/
 		turtle.setPenColor(new Color(0,255,0));
 		turtle.setFillColor(new Color(0,255,255));
-		turtle.circle(100, 0, 25, true);
+		turtle.circle(100, -50, 25, true);
 		return	null;
 	}
 	
@@ -104,7 +104,7 @@ public class TurtleClientTest2 {
 		turtle.setPosition(-150,-100);
 		turtle.penDown();
 		turtle.setPenColor(new Color(255,0,0));
-		turtle.circle(40, 40, 180);
+		turtle.circle(50, 5, 360);
 		turtle.forward(50);
 		turtle.forward(-50);
 		turtle.setPenColor(new Color(0,255,0));
@@ -118,7 +118,7 @@ public class TurtleClientTest2 {
 		turtle.setPosition(0,-100);
 		turtle.penDown();
 		turtle.setPenColor(new Color(0,255,255));
-		turtle.circle(40, 40, 360);/*use 360 will cause the the drawing of entire circle, or regular polygon*/
+		turtle.circle(40, 10, 270);/*use 360 will cause the the drawing of entire circle, or regular polygon*/
 		turtle.forward(50);
 
 		
@@ -219,6 +219,38 @@ public class TurtleClientTest2 {
 		return null;
 	}
 	
+	
+	public	static	String	where_am_i(Turtle turtle)
+	{
+		turtle.set_use_degrees(true);
+		double[] position;
+		System.out.println(turtle.getHeading());
+		
+		turtle.left(30);
+		System.out.println(turtle.getHeading()+20);
+
+		turtle.left(60);
+		System.out.println(turtle.getHeading());
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+		
+		turtle.forward(100);
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		turtle.left(90);
+		System.out.println(turtle.getHeading());
+		
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		turtle.forward(100);
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		return "";
+	}
+	
 
 	/**
 	 * - setPosition
@@ -228,27 +260,53 @@ public class TurtleClientTest2 {
 	 * */
 	public static	String	coordinate_demo(Turtle turtle)
 	{
+		double[]	position;
 		turtle.penUp();
 		turtle.setPosition(-80,-80);
 		turtle.penDown();
-		turtle.setPenColor(new Color(255,0,0));
+		
+		//turtle.setPenColor(new Color(255,0,0));
 		turtle.setPosition(-80,80);
-		turtle.setPenColor(new Color(0,255,0));
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		//turtle.setPenColor(new Color(0,255,0));
 		turtle.setPosition(80,80);
-		turtle.setPenColor(new Color(0,0,255));
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		//turtle.setPenColor(new Color(0,0,255));
 		turtle.setPosition(80,-80);
-		turtle.setPenColor(new Color(0,255,255));
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		//turtle.setPenColor(new Color(0,255,255));
 		turtle.setPosition(-80,-80);	
+		position = turtle.getPosition();
+		System.out.println(turtle.getPosition());
+//		System.out.println(turtle.setPosition(-80,-80));
+		System.out.println("("+position[0]+","+position[1]+")");
+		
+		
+		
+		
 		
 		turtle.penUp();
 		turtle.setPosition(-100,-100);
 		turtle.penDown();
+		position = turtle.getPosition();
+		System.out.println("("+position[0]+","+position[1]+")");
+
+		
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.setPosition(-100,100);
+		
 		turtle.setPenColor(new Color(0,255,0));
 		turtle.setPosition(100,100);
+		
 		turtle.setPenColor(new Color(0,0,255));
 		turtle.setPosition(100,-100);
+		
 		turtle.setPenColor(new Color(0,255,255));
 		turtle.setPosition(-100,-100);
 
@@ -312,14 +370,17 @@ public class TurtleClientTest2 {
 		turtle.forward(10);
 		turtle.penDown();
 		turtle.forward(10);
+		
 		turtle.penUp();
 		turtle.forward(10);
 		turtle.penDown();
 		turtle.forward(10);
+		
 		turtle.penUp();
 		turtle.forward(10);
 		turtle.penDown();
 		turtle.forward(10);
+		
 		turtle.penUp();
 		turtle.forward(10);
 		turtle.penDown();
@@ -410,22 +471,37 @@ public class TurtleClientTest2 {
 	public	static	String	stairs0(Turtle turtle)
 	{
 		turtle.set_use_degrees(true);
+		
+		for(int i=0;i<4;i++)
+		{
+			turtle.forward(30);
+			turtle.right(90);
+			turtle.forward(30);
+			turtle.left(90);
+		}
+		
+		/*
 		turtle.forward(30);
 		turtle.right(90);
 		turtle.forward(30);
 		turtle.left(90);
+		
 		turtle.forward(30);
 		turtle.right(90);
 		turtle.forward(30);
 		turtle.left(90);
+		
 		turtle.forward(30);
 		turtle.right(90);
 		turtle.forward(30);
 		turtle.left(90);
+		
 		turtle.forward(30);
 		turtle.right(90);
 		turtle.forward(30);
 		turtle.left(90);
+		*/
+		
 		turtle.right(180);
 		turtle.forward(30*4);
 		turtle.right(90);
@@ -436,24 +512,29 @@ public class TurtleClientTest2 {
 	public	static	String	stairs1(Turtle turtle)
 	{
 		double w = 35;
-		double h = 30;
+		double h = 20;
 		turtle.set_use_degrees(true);
+		
 		turtle.forward(w);
 		turtle.right(90);
 		turtle.forward(h);
 		turtle.left(90);
+		
 		turtle.forward(w);
 		turtle.right(90);
 		turtle.forward(h);
 		turtle.left(90);
+		
 		turtle.forward(w);
 		turtle.right(90);
 		turtle.forward(h);
 		turtle.left(90);
+		
 		turtle.forward(w);
 		turtle.right(90);
 		turtle.forward(h);
 		turtle.left(90);
+		
 		turtle.right(180);
 		turtle.forward(w*4);
 		turtle.right(90);
@@ -688,9 +769,9 @@ public class TurtleClientTest2 {
 
     public static void rectangle(Turtle turtle,double cx,double cy,double height,double width)
     {
-    	turtle.penUp();
+      turtle.penUp();
       turtle.setPosition(cx-width/2, cy+height/2);
-  	turtle.penDown();
+  	  turtle.penDown();
       turtle.set_use_degrees(true);
       turtle.forward(width);
       turtle.right(90);
@@ -746,13 +827,38 @@ public class TurtleClientTest2 {
 		return null;
 	}
 	
+	public	static	String	spiral(Turtle turtle)
+	{
+		turtle.set_use_degrees(true);
+		
+		double	l = 145;
+		double	d = 0.5;
+		
+		for(int i=0;i<200;i++)
+		{
+			System.out.println(l-i*d);
+			turtle.forward(l-i*d);
+			turtle.left(60);
+			//l = l+d;
+		}
+		
+		return null;
+	}
+	
+	
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
 		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200});
-		tc.setDrawFunction(t->coordinate_demo(t));
+		tc.setDrawFunction(t->spiral(t));
 		/*
+		tc.setDrawFunction(t->stairs0(t));
+		tc.setDrawFunction(t->stairs1(t));
+		tc.setDrawFunction(t->penup_pendown_demo(t));
 		tc.setDrawFunction(t->coordinate_demo(t));
+		tc.setDrawFunction(t->where_am_i(t));
+		
+		
 		tc.setDrawFunction(t->turtle_forward_backward_demo(t));
 		tc.setDrawFunction(t->direction_control_demo(t));
 		tc.setDrawFunction(t->penup_pendown_demo(t));
