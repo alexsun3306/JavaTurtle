@@ -117,10 +117,18 @@ public class Turtle {
         penColor = color;
         StdDraw.setPenColor(this.penColor);
     }
+    public void setPenColor(int r,int g,int b) {
+    	setPenColor(new	Color(r,g,b));
+    }
     
     public void setFillColor(Color color) {
         fillColor = color;
     }
+    
+    public void setFillColor(int r,int g,int b) {
+    	setFillColor(new	Color(r,g,b));
+    }
+    
 
     public void setPenRadius(double radius) {
         StdDraw.setPenRadius(radius*0.0025);

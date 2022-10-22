@@ -1,4 +1,4 @@
-package sandbox;
+package demo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
-public class TurtleClientTest2 {
+public class TurtleFeaturesDemo {
 
 	//test
 	public	static	String	Polygon(Turtle turtle)
