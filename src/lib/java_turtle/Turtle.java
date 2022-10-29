@@ -466,7 +466,13 @@ public class Turtle {
         this.canvas.proposeToUpdate(true);
     }
 
-
+	public	String	getCallerName()
+	{
+		 return StackWalker.
+			      getInstance().
+			      walk(stream -> stream.skip(1).findFirst().get()).
+			      getMethodName();
+	}
 
 
 }

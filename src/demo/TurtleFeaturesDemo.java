@@ -37,7 +37,7 @@ public class TurtleFeaturesDemo {
 		*/
 		//turtle.polygon(), false)
 		turtle.ellipse(0, 0, 10, 20,true);
-		return	"polygon";
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -60,7 +60,7 @@ public class TurtleFeaturesDemo {
 		turtle.setPenColor(new Color(0,255,0));
 		turtle.setFillColor(new Color(0,255,255));
 		turtle.circle(100, -50, 25, true);
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -83,7 +83,7 @@ public class TurtleFeaturesDemo {
 		turtle.setHeading(90);
 		turtle.penDown();
 		turtle.circle(50, true,false);/*circle is tangent from current turtle location & to turtle direction*/
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -129,7 +129,7 @@ public class TurtleFeaturesDemo {
 		turtle.circle(40, 4, 360);/*reduce the number of segments will lead to regular polygon*/
 		turtle.forward(50);
 
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	/**
@@ -153,7 +153,7 @@ public class TurtleFeaturesDemo {
 		turtle.arc(100,100,60,135, 225);
 		turtle.arc(100,100,70,135, 225);
 		turtle.arc(100,100,80,135, 225);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -175,7 +175,7 @@ public class TurtleFeaturesDemo {
 
 		/*draw ellipse center @ specified location of x,y*/
 		turtle.ellipse(25, 75, true);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -195,7 +195,7 @@ public class TurtleFeaturesDemo {
 
 		/*draw rectangle center @ specified location of x,y*/
 		turtle.rectangle(25, 75, true);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -216,7 +216,7 @@ public class TurtleFeaturesDemo {
 
 		/*draw square center @ specified location of x,y*/
 		turtle.square(50, true);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -248,7 +248,7 @@ public class TurtleFeaturesDemo {
 		position = turtle.getPosition();
 		System.out.println("("+position[0]+","+position[1]+")");
 
-		return "";
+		return	turtle.getCallerName();
 	}
 	
 
@@ -316,7 +316,7 @@ public class TurtleFeaturesDemo {
 		turtle.circle(50, false, false);
 		
 		
-		return "coordinate_demo";
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -357,7 +357,7 @@ public class TurtleFeaturesDemo {
 		turtle.square(20,true);
 
 		
-		return null;
+		return	turtle.getCallerName();
 		
 	}
 	
@@ -385,7 +385,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(10);
 		turtle.penDown();
 		turtle.forward(10);
-		return null;	
+		return	turtle.getCallerName();	
 	}
 
 	/**
@@ -425,9 +425,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(80);
 		
 		
-		
-		
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -464,7 +462,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(80);
 		turtle.left(90);
 		turtle.endFill();
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -506,7 +504,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(30*4);
 		turtle.right(90);
 		turtle.forward(30*4);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	stairs1(Turtle turtle)
@@ -539,7 +537,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(w*4);
 		turtle.right(90);
 		turtle.forward(h*4);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	stairs2(Turtle turtle)
@@ -558,7 +556,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(w*4);
 		turtle.right(90);
 		turtle.forward(h*4);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -579,7 +577,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(w*n);
 		turtle.right(90);
 		turtle.forward(h*n);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -624,14 +622,14 @@ public class TurtleFeaturesDemo {
 	public	static	String	stairsNTest(Turtle turtle)
 	{
 		stairsN(turtle,5,25,20);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	stairsPosNTest(Turtle turtle)
 	{
 		stairsPosN(turtle,-100,100,0,5,25,20);
 		stairsPosN(turtle,0,100,45,4,15,15);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	strange_piece(Turtle turtle)
@@ -654,7 +652,7 @@ public class TurtleFeaturesDemo {
 		turtle.forward(h-2*r);
 		turtle.right(90);
 		turtle.forward(2*w+10*r);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -738,7 +736,7 @@ public class TurtleFeaturesDemo {
 	{
 		//comp(turtle);
 		comp(turtle,3,5,10,60,250);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -824,7 +822,7 @@ public class TurtleFeaturesDemo {
 	{
 		//comp(turtle);
 		win2(turtle);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	spiral(Turtle turtle)
@@ -842,14 +840,14 @@ public class TurtleFeaturesDemo {
 			//l = l+d;
 		}
 		
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200});
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
 		tc.setDrawFunction(t->spiral(t));
 		/*
 		tc.setDrawFunction(t->stairs0(t));

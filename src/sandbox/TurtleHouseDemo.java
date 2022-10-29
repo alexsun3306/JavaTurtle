@@ -1,4 +1,4 @@
-package demo;
+package sandbox;
 
 import java.util.Scanner;
 import java.util.ArrayList;

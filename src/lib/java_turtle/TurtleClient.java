@@ -25,13 +25,14 @@ public class TurtleClient {
 	private	boolean bBlitRequired = false;
 	private	Canvas	canvas = null;
 	private	Function<Turtle,String> draw_function;
+	private	boolean	bOnline = false;
 	
-	public	TurtleClient(int[]	arrResolution,double[]	arrLogicalScaleX,double[]	arrLogicalScaleY)
+	public	TurtleClient(int[]	arrResolution,double[]	arrLogicalScaleX,double[]	arrLogicalScaleY,boolean bOnline)
 	{
 		this.arrResolution = arrResolution.clone();
 		this.arrLogicalScaleX = arrLogicalScaleX.clone();
 		this.arrLogicalScaleY = arrLogicalScaleY.clone();
-		Character a;
+		this.bOnline = bOnline;
 		
 	}
 
@@ -67,10 +68,10 @@ public class TurtleClient {
 	         
 	         Date date = new	Date();  
              DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd - hhmmss");
-             String	fName = name+" - "+ dateFormat.format(date)+".png";
+             String	fName = (bOnline?"":("e:\\turtle exec images\\"+name+"\\"))+name+" - "+ dateFormat.format(date)+".png";
              File f = new File(fName);
-             
-             //Paths.get(fName).getParent().toFile().mkdirs();
+             if (!bOnline)
+            	 {Paths.get(fName).getParent().toFile().mkdirs();}
              bBlitRequired = false;
              canvas.proposeToUpdate(true);
 	         canvas.captureScreenAs(fName);
@@ -84,7 +85,13 @@ public class TurtleClient {
 	}
 	
 	
-
+	public	String	getName()
+	{
+		 return StackWalker.
+			      getInstance().
+			      walk(stream -> stream.skip(1).findFirst().get()).
+			      getMethodName();
+	}
 	
 
 

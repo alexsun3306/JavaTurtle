@@ -30,8 +30,7 @@ public class TurtleCommandsDemo {
 		//turtle.backward(-200);
 
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -43,7 +42,7 @@ public class TurtleCommandsDemo {
 		turtle.setPosition(0,0);
 		
 		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -67,8 +66,7 @@ public class TurtleCommandsDemo {
 		
 
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -88,8 +86,7 @@ public class TurtleCommandsDemo {
 		turtle.forward(150);
 		turtle.left(Math.PI/2);
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -106,8 +103,7 @@ public class TurtleCommandsDemo {
 		turtle.forward(50);
 		
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	public	static	String	command_artistic(Turtle turtle)
@@ -141,8 +137,7 @@ public class TurtleCommandsDemo {
 		turtle.left(60);
 		
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -185,8 +180,7 @@ public class TurtleCommandsDemo {
 		turtle.left(90);
 		
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 	
 
@@ -231,8 +225,7 @@ public class TurtleCommandsDemo {
 		turtle.left(90);
 		
 		
-		
-		return	null;
+		return	turtle.getCallerName();
 	}
 
 	
@@ -279,7 +272,7 @@ public class TurtleCommandsDemo {
 		
 		
 		
-		return	null;
+		return	turtle.getCallerName();
 	}
 
 	
@@ -294,7 +287,7 @@ public class TurtleCommandsDemo {
 		turtle.setFillColor(0,255, 0);
 		turtle.circle(100, 100, 80, false);
 		
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -322,7 +315,7 @@ public class TurtleCommandsDemo {
 		turtle.forward(100);
 		turtle.forward(-100);
 		
-		return null;
+		return	turtle.getCallerName();
 	}
 
 	public	static String	command_circle_3a(Turtle turtle)
@@ -348,7 +341,7 @@ public class TurtleCommandsDemo {
 		turtle.circle(40, 4, 360);
 		//turtle.endFill();
 	
-		return null;
+		return	turtle.getCallerName();
 	}
 
 	
@@ -368,7 +361,7 @@ public class TurtleCommandsDemo {
 		turtle.forward(40);
 		//turtle.endFill();
 	
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -385,7 +378,7 @@ public class TurtleCommandsDemo {
 		turtle.forward(40);
 		//turtle.endFill();
 	
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -408,7 +401,7 @@ public class TurtleCommandsDemo {
 		turtle.arc(100,100,60,135, 225);
 		turtle.arc(100,100,70,135, 225);
 		turtle.arc(100,100,80,135, 225);
-		return null;
+		return	turtle.getCallerName();
 	}
 	
 	
@@ -419,7 +412,7 @@ public class TurtleCommandsDemo {
 
 		
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200});
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
 		tc.setDrawFunction(t->command_arc(t));
 		tc.runMainLoop();
 		

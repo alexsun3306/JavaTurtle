@@ -1,6 +1,8 @@
 package demo;
 
 import java.awt.Color;
+import java.awt.TextComponent;
+
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
@@ -8,6 +10,8 @@ import lib.java_turtle.TurtleClient;
 
 
 public class TurtleTetrisDemo {
+
+	
 
 	
 
@@ -140,7 +144,7 @@ public class TurtleTetrisDemo {
 	public	static	String	tetris(Turtle turtle)
 	{
 		I(turtle,50);
-		return	"polygon";
+		return	turtle.getCallerName();
 	}
 	
 
@@ -149,7 +153,7 @@ public class TurtleTetrisDemo {
 
 		
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200});
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
 		tc.setDrawFunction(t->tetris(t));
 		tc.runMainLoop();
 		
