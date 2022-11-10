@@ -153,7 +153,7 @@ public class TurtleTetrisDemo {
 
 		
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
 		tc.setDrawFunction(t->tetris(t));
 		tc.runMainLoop();
 		

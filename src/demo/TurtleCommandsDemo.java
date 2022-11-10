@@ -279,13 +279,13 @@ public class TurtleCommandsDemo {
 	public	static String	command_circle_1(Turtle turtle)
 	{
 		turtle.setFillColor(255, 0, 0);
-		turtle.circle(0, 0, 50, true);
+		turtle.circle_stddraw(0, 0, 50, true);
 
 		turtle.setFillColor(0,255, 0);
-		turtle.circle(100, 100, 50, true);
+		turtle.circle_stddraw(100, 100, 50, true);
 
 		turtle.setFillColor(0,255, 0);
-		turtle.circle(100, 100, 80, false);
+		turtle.circle_stddraw(100, 100, 80, false);
 		
 		return	turtle.getCallerName();
 	}
@@ -300,7 +300,7 @@ public class TurtleCommandsDemo {
 		turtle.setPosition(-100, -100);
 		turtle.penDown();
 		
-		turtle.circle(80, false, true);
+		turtle.circle_stddraw(80, false, true);
 		turtle.forward(100);
 		turtle.forward(-100);
 		
@@ -311,7 +311,7 @@ public class TurtleCommandsDemo {
 		turtle.penDown();
 		turtle.setHeading(180);
 		
-		turtle.circle(80, true, true);
+		turtle.circle_stddraw(80, true, true);
 		turtle.forward(100);
 		turtle.forward(-100);
 		
@@ -388,7 +388,7 @@ public class TurtleCommandsDemo {
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		/*draw arc center @ turtle position*/
-		turtle.circle(5, false, true);
+		turtle.circle_stddraw(5, false, true);
 		turtle.arc(100, 45, 135);
 		turtle.setPenColor(new Color(0,255,0));
 		turtle.arc(70, 90, 180);
@@ -396,7 +396,7 @@ public class TurtleCommandsDemo {
 		turtle.arc(50,135, 225);
 		
 		/*draw arc center @ specified location of x,y*/
-		turtle.circle(100, 100, 5, true);
+		turtle.circle_stddraw(100, 100, 5, true);
 		turtle.arc(100,100,50,90, 270);
 		turtle.arc(100,100,60,135, 225);
 		turtle.arc(100,100,70,135, 225);
@@ -412,7 +412,7 @@ public class TurtleCommandsDemo {
 
 		
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
 		tc.setDrawFunction(t->command_arc(t));
 		tc.runMainLoop();
 		

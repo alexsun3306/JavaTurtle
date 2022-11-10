@@ -264,7 +264,7 @@ public class TurtleHouseDemo2 {
 	
 	public static void main(String[] args) 
 	{
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
 		tc.setDrawFunction(t->canvas(t));
 	
 		tc.runMainLoop();

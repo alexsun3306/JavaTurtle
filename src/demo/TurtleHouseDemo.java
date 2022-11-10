@@ -130,7 +130,7 @@ public class TurtleHouseDemo {
 		{
 			turtle.right(90);
 			turtle.forward(height);
-			turtle.circle(radius, 40, 180);
+			turtle.circle(radius, n, angle);
 			turtle.forward(height);
 			turtle.right(90);
 			turtle.forward(center_width);
@@ -264,7 +264,7 @@ public class TurtleHouseDemo {
 	
 	public static void main(String[] args) 
 	{
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
 		tc.setDrawFunction(t->canvas(t));
 	
 		tc.runMainLoop();

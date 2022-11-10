@@ -51,15 +51,22 @@ public class TurtleFeaturesDemo {
 	 * 	- fillcolor
 	 * 	- filled option
 	 * */
-	public	static	String	circle_demo_1(Turtle turtle)
+	public	static	String	circle_stddraw_from_center(Turtle turtle)
 	{
-		turtle.setPenColor(new Color(0,0,0));
-		turtle.circle(-100, 50, 25, false); /*not filled*/
+		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
-		turtle.circle(-0, 0, 50, true);/*filled*/
-		turtle.setPenColor(new Color(0,255,0));
-		turtle.setFillColor(new Color(0,255,255));
-		turtle.circle(100, -50, 25, true);
+		for (int i=0;i<9;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			turtle.penUp();
+			turtle.setHeading(i*30);
+			turtle.setPosition(c*120-150,r*120-150);
+			turtle.penDown();
+			mark_1(turtle);
+			turtle.circle_stddraw(30, false,false);/*circle is tangent from current turtle location & to turtle direction*/
+			mark_2(turtle);
+		}
 		return	turtle.getCallerName();
 	}
 	
@@ -70,19 +77,22 @@ public class TurtleFeaturesDemo {
 	 * - center from current turtle location
 	 * - circle is tangent from current turtle location & to turtle direction
 	 * */
-	public	static	String	circle_demo_2(Turtle turtle)
+	public	static	String	circle_stddraw_follow_track(Turtle turtle)
 	{
-		turtle.circle(-100, -100, 25, false);
-		turtle.setPenColor(new Color(0,255,0));
-		turtle.circle(25, false,false);/*circle center is turtle current location*/
-		turtle.setPenColor(new Color(0,255,255));
-		turtle.circle(50, true,false);/*circle is tangent from current turtle location & to turtle direction*/
-		turtle.penUp();
-		turtle.setPosition(100,-100);
 		turtle.set_use_degrees(true);
-		turtle.setHeading(90);
-		turtle.penDown();
-		turtle.circle(50, true,false);/*circle is tangent from current turtle location & to turtle direction*/
+		turtle.setPenColor(new Color(255,0,0));
+		for (int i=0;i<9;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			turtle.penUp();
+			turtle.setHeading(i*30);
+			turtle.setPosition(c*120-150,r*120-150);
+			turtle.penDown();
+			mark_1(turtle);
+			turtle.circle_stddraw(30, true,false);/*circle is tangent from current turtle location & to turtle direction*/
+			mark_2(turtle);
+		}
 		return	turtle.getCallerName();
 	}
 	
@@ -96,38 +106,51 @@ public class TurtleFeaturesDemo {
 	 * - # of sides, the bigger number, the closer to a circle/arc curve
 	 * - reduce the number of sides will lead to regular polygon
 	 * */
-	public	static	String	circle_demo_3(Turtle turtle)
+	
+	
+	public	static	void	mark_1(Turtle turtle)
+	{
+		for (int i=0;i<5;i++)
+		{
+			turtle.penUp();
+			turtle.forward(5);
+			turtle.penDown();
+			turtle.forward(5);
+		}
+		turtle.penUp();
+		turtle.backward(50);
+		turtle.penDown();
+	}
+
+	public	static	void	mark_2(Turtle turtle)
+	{
+		turtle.forward(50);
+		turtle.backward(50);
+	}
+
+	
+	
+
+	
+	
+	public	static	String	circle_from_polygon(Turtle turtle)
 	{
 		turtle.set_use_degrees(true);
-		turtle.setHeading(0);
-		turtle.penUp();
-		turtle.setPosition(-150,-100);
-		turtle.penDown();
 		turtle.setPenColor(new Color(255,0,0));
-		turtle.circle(50, 5, 360);
-		turtle.forward(50);
-		turtle.forward(-50);
-		turtle.setPenColor(new Color(0,255,0));
-		turtle.circle(40, 40, 180); 
-		/*after the arc/partial circle is drawn, the direction and location of the turtle will change*/
-		turtle.forward(50);
+		for (int i=0;i<9;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			turtle.penUp();
+			turtle.setHeading(0);
+			turtle.setPosition(c*120-150,r*120-150);
+			turtle.penDown();
+			mark_1(turtle);
+			turtle.circle(30, i, 180);
+			mark_2(turtle);
+		}
 
 		
-
-		turtle.penUp();
-		turtle.setPosition(0,-100);
-		turtle.penDown();
-		turtle.setPenColor(new Color(0,255,255));
-		turtle.circle(40, 10, 270);/*use 360 will cause the the drawing of entire circle, or regular polygon*/
-		turtle.forward(50);
-
-		
-		turtle.penUp();
-		turtle.setPosition(100,-100);
-		turtle.penDown();
-		turtle.setPenColor(new Color(255,0,255));
-		turtle.circle(40, 4, 360);/*reduce the number of segments will lead to regular polygon*/
-		turtle.forward(50);
 
 		return	turtle.getCallerName();
 	}
@@ -139,21 +162,26 @@ public class TurtleFeaturesDemo {
 	 * */
 	public	static	String	arc_demo(Turtle turtle)
 	{
+		turtle.set_use_stddraw_arc(true);
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
-		/*draw arc center @ turtle position*/
-		turtle.arc(100, 45, 135);
-		turtle.setPenColor(new Color(0,255,0));
-		turtle.arc(70, 90, 180);
-		turtle.setPenColor(new Color(0,255,255));
-		turtle.arc(50,135, 225);
+		turtle.home();
+		turtle.setHeading(0);
 		
-		/*draw arc center @ specified location of x,y*/
-		turtle.arc(100,100,50,135, 225);
-		turtle.arc(100,100,60,135, 225);
-		turtle.arc(100,100,70,135, 225);
-		turtle.arc(100,100,80,135, 225);
+		for (int i=0;i<18;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			mark_1(turtle);
+			turtle.arc(i*10, i*30, i*30+30);
+			mark_2(turtle);
+		}
+	
+		
+	
 		return	turtle.getCallerName();
+		
+		
 	}
 	
 	
@@ -313,7 +341,7 @@ public class TurtleFeaturesDemo {
 		turtle.penUp();
 		turtle.home();
 		turtle.penDown();
-		turtle.circle(50, false, false);
+		turtle.circle_stddraw(50, false, false);
 		
 		
 		return	turtle.getCallerName();
@@ -331,7 +359,7 @@ public class TurtleFeaturesDemo {
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.forward(100);
 		turtle.setFillColor(new Color(255,0,0));
-		turtle.circle(10, false, true);
+		turtle.circle_stddraw(10, false, true);
 		turtle.setPenColor(new Color(0,255,0));
 		turtle.backward(200);
 		turtle.square(20,  false);
@@ -348,7 +376,7 @@ public class TurtleFeaturesDemo {
 		turtle.setPenColor(new Color(255,0,255));
 		turtle.forward(100);
 		turtle.setFillColor(new Color(255,0,255));
-		turtle.circle(10, false, true);
+		turtle.circle_stddraw(10, false, true);
 		turtle.setPenColor(new Color(0,128,128));
 		turtle.backward(200);
 		turtle.square(20,  false);
@@ -847,8 +875,8 @@ public class TurtleFeaturesDemo {
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
-		tc.setDrawFunction(t->spiral(t));
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
+		tc.setDrawFunction(t->arc_demo(t));
 		/*
 		tc.setDrawFunction(t->stairs0(t));
 		tc.setDrawFunction(t->stairs1(t));
@@ -870,5 +898,105 @@ public class TurtleFeaturesDemo {
 		tc.setDrawFunction(t->arc_demo(t));
 		*/
 		tc.runMainLoop();
+	}
+
+
+
+
+	public	static	String	circle_from_polygon4(Turtle turtle)
+	{
+		turtle.set_use_degrees(true);
+		turtle.setHeading(0);
+		turtle.setPenColor(new Color(255,0,0));
+		
+		
+		turtle.penUp();
+		turtle.setPosition(-150,-50);
+		turtle.setHeading(0);
+		turtle.penDown();
+		mark_1(turtle);
+		turtle.circle(-50, 12, 90);
+		mark_2(turtle);
+	
+		
+		turtle.penUp();
+		turtle.setPosition(-150,50);
+		turtle.setHeading(0);
+		turtle.penDown();
+		mark_1(turtle);
+		turtle.circle(50, 12, 90);
+		mark_2(turtle);
+		
+	
+		turtle.penUp();
+		turtle.setPosition(-0,-50);
+		turtle.setHeading(0);
+		turtle.penDown();
+		mark_1(turtle);
+		turtle.circle(-50, 12, -90);
+		mark_2(turtle);
+	
+		
+		turtle.penUp();
+		turtle.setPosition(-0,50);
+		turtle.setHeading(0);
+		turtle.penDown();
+		mark_1(turtle);
+		turtle.circle(50, 12, -90);
+		mark_2(turtle);
+		
+		
+		
+		return	turtle.getCallerName();
+	}
+
+
+
+
+	public	static	String	circle_from_polygon3(Turtle turtle)
+	{
+		turtle.set_use_degrees(true);
+		turtle.setPenColor(new Color(255,0,0));
+		for (int i=0;i<9;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			turtle.penUp();
+			turtle.setHeading(0);
+			turtle.setPosition(c*120-150,r*120-150);
+			turtle.penDown();
+			mark_1(turtle);
+			turtle.circle(30, 24, i*30);
+			mark_2(turtle);
+		}
+	
+		
+	
+		return	turtle.getCallerName();
+	}
+
+
+
+
+	public	static	String	circle_from_polygon2(Turtle turtle)
+	{
+		turtle.set_use_degrees(true);
+		turtle.setPenColor(new Color(255,0,0));
+		for (int i=0;i<9;i++)
+		{
+			int r = i/3;
+			int c = i%3;
+			turtle.penUp();
+			turtle.setHeading(i*30);
+			turtle.setPosition(c*120-150,r*120-150);
+			turtle.penDown();
+			mark_1(turtle);
+			turtle.circle(30, 12, 180);
+			mark_2(turtle);
+		}
+	
+		
+	
+		return	turtle.getCallerName();
 	}
 }
