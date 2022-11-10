@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
-public class TurtleEmptyDemo {
+public class TurtleExercises {
 
 	//test
 	public	static	String	demo(Turtle turtle)
@@ -30,7 +30,7 @@ public class TurtleEmptyDemo {
 		turtle.forward(100);
 		turtle.forward(-100);
 		turtle.left(90);
-		return	"polygon";
+		return	turtle.getCallerName();
 	}
 	
 	
