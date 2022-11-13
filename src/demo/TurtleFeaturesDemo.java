@@ -8,14 +8,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lib.java_turtle.Canvas;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
 public class TurtleFeaturesDemo {
 
 	//test
-	public	static	String	Polygon(Turtle turtle)
+	public	static	String	Polygon(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.setPenRadius(10);
 		//turtle.circle(0, 0, 100);
 //		turtle.arc(100,  math.PI/2);
@@ -51,8 +53,9 @@ public class TurtleFeaturesDemo {
 	 * 	- fillcolor
 	 * 	- filled option
 	 * */
-	public	static	String	circle_stddraw_from_center(Turtle turtle)
+	public	static	String	circle_stddraw_from_center(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		for (int i=0;i<9;i++)
@@ -77,8 +80,9 @@ public class TurtleFeaturesDemo {
 	 * - center from current turtle location
 	 * - circle is tangent from current turtle location & to turtle direction
 	 * */
-	public	static	String	circle_stddraw_follow_track(Turtle turtle)
+	public	static	String	circle_stddraw_follow_track(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		for (int i=0;i<9;i++)
@@ -133,8 +137,9 @@ public class TurtleFeaturesDemo {
 
 	
 	
-	public	static	String	circle_from_polygon(Turtle turtle)
+	public	static	String	circle_from_polygon(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		for (int i=0;i<9;i++)
@@ -160,8 +165,9 @@ public class TurtleFeaturesDemo {
 	 * - center from specified center location x,y
 	 * - center from current turtle location
 	 * */
-	public	static	String	arc_demo(Turtle turtle)
+	public	static	String	arc_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_stddraw_arc(true);
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
@@ -193,8 +199,9 @@ public class TurtleFeaturesDemo {
 	 * - center from current turtle location
 	 * - can specify whether if filled
 	 * */
-	public	static	String	ellipse_demo(Turtle turtle)
+	public	static	String	ellipse_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.setFillColor(new Color(0,255,0));
@@ -213,8 +220,9 @@ public class TurtleFeaturesDemo {
 	 * - center from current turtle location
 	 * - can specify whether if filled
 	 * */
-	public	static	String	rectangle_demo(Turtle turtle)
+	public	static	String	rectangle_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.setFillColor(new Color(0,255,0));
@@ -234,8 +242,9 @@ public class TurtleFeaturesDemo {
 	 * - center from current turtle location
 	 * - can specify whether if filled
 	 * */
-	public	static	String	square_demo(Turtle turtle)
+	public	static	String	square_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.setFillColor(new Color(0,255,0));
@@ -248,8 +257,9 @@ public class TurtleFeaturesDemo {
 	}
 	
 	
-	public	static	String	where_am_i(Turtle turtle)
+	public	static	String	where_am_i(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		double[] position;
 		System.out.println(turtle.getHeading());
@@ -286,8 +296,9 @@ public class TurtleFeaturesDemo {
 	 * - penDown
 	 * - home
 	 * */
-	public static	String	coordinate_demo(Turtle turtle)
+	public static	String	coordinate_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		double[]	position;
 		turtle.penUp();
 		turtle.setPosition(-80,-80);
@@ -354,8 +365,9 @@ public class TurtleFeaturesDemo {
 	 * forward(x) will have the same result of backward(-x)
 	 * forward and backward is sensitive to current location and current direction
 	 * */
-	public static	String	turtle_forward_backward_demo(Turtle turtle)
+	public static	String	turtle_forward_backward_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.setPenColor(new Color(255,0,0));
 		turtle.forward(100);
 		turtle.setFillColor(new Color(255,0,0));
@@ -392,8 +404,9 @@ public class TurtleFeaturesDemo {
 	/**
 	 * use of penup & pendown to move turtle without leaving trace/drawing
 	 * */
-	public static	String	penup_pendown_demo(Turtle turtle)
+	public static	String	penup_pendown_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.penUp();
 		turtle.forward(10);
 		turtle.penDown();
@@ -422,8 +435,9 @@ public class TurtleFeaturesDemo {
 	 * seth set the absolute direction
 	 * left(a) and right(x) will generate the same result
 	 * */
-	public	static	String	direction_control_demo(Turtle turtle)
+	public	static	String	direction_control_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.penUp();
 		turtle.home();
@@ -457,8 +471,9 @@ public class TurtleFeaturesDemo {
 	}
 	
 	
-	public	static	String	fill_demo(Turtle turtle)
+	public	static	String	fill_demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.penUp();
 		turtle.setPosition(-100,0);
@@ -494,8 +509,9 @@ public class TurtleFeaturesDemo {
 	}
 	
 	
-	public	static	String	stairs0(Turtle turtle)
+	public	static	String	stairs0(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		for(int i=0;i<4;i++)
@@ -535,8 +551,9 @@ public class TurtleFeaturesDemo {
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	stairs1(Turtle turtle)
+	public	static	String	stairs1(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		double w = 35;
 		double h = 20;
 		turtle.set_use_degrees(true);
@@ -568,8 +585,9 @@ public class TurtleFeaturesDemo {
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	stairs2(Turtle turtle)
+	public	static	String	stairs2(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		double w = 25;
 		double h = 30;
 		turtle.set_use_degrees(true);
@@ -588,8 +606,9 @@ public class TurtleFeaturesDemo {
 	}
 	
 	
-	public	static	String	stairs3(Turtle turtle)
+	public	static	String	stairs3(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		double w = 25;
 		double h = 30;
 		int n = 4;
@@ -647,21 +666,24 @@ public class TurtleFeaturesDemo {
 	}
 
 	
-	public	static	String	stairsNTest(Turtle turtle)
+	public	static	String	stairsNTest(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		stairsN(turtle,5,25,20);
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	stairsPosNTest(Turtle turtle)
+	public	static	String	stairsPosNTest(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		stairsPosN(turtle,-100,100,0,5,25,20);
 		stairsPosN(turtle,0,100,45,4,15,15);
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	strange_piece(Turtle turtle)
+	public	static	String	strange_piece(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		double h = 60;
 		double w = 10;
 		double r = 16;
@@ -711,6 +733,7 @@ public class TurtleFeaturesDemo {
 	
 	public	static	void	polygon(Turtle turtle)
 	{
+		
 		double l = 3;
 		int n = 5;
 		turtle.set_use_degrees(true);
@@ -760,8 +783,9 @@ public class TurtleFeaturesDemo {
 		}
 	}
 	
-	public	static	String	test_comp(Turtle turtle)
+	public	static	String	test_comp(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		//comp(turtle);
 		comp(turtle,3,5,10,60,250);
 		return	turtle.getCallerName();
@@ -846,15 +870,17 @@ public class TurtleFeaturesDemo {
     }
     
     
-	public	static	String	TEST_HOUSE(Turtle turtle)
+	public	static	String	TEST_HOUSE(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		//comp(turtle);
 		win2(turtle);
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	spiral(Turtle turtle)
+	public	static	String	spiral(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		double	l = 145;
@@ -903,8 +929,9 @@ public class TurtleFeaturesDemo {
 
 
 
-	public	static	String	circle_from_polygon4(Turtle turtle)
+	public	static	String	circle_from_polygon4(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setHeading(0);
 		turtle.setPenColor(new Color(255,0,0));
@@ -953,8 +980,9 @@ public class TurtleFeaturesDemo {
 
 
 
-	public	static	String	circle_from_polygon3(Turtle turtle)
+	public	static	String	circle_from_polygon3(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		for (int i=0;i<9;i++)
@@ -978,8 +1006,9 @@ public class TurtleFeaturesDemo {
 
 
 
-	public	static	String	circle_from_polygon2(Turtle turtle)
+	public	static	String	circle_from_polygon2(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		for (int i=0;i<9;i++)

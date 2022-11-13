@@ -3,6 +3,7 @@ package demo;
 import java.awt.Color;
 import java.awt.TextComponent;
 
+import lib.java_turtle.Canvas;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
@@ -141,8 +142,9 @@ public class TurtleTetrisDemo {
 	
 	
 	
-	public	static	String	tetris(Turtle turtle)
+	public	static	String	tetris(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		for(int i=0;i<9;i++)
 		{
 			turtle.penUp();

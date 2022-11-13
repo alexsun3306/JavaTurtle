@@ -22,18 +22,21 @@ public class TurtleClient {
 	private	double[]	arrLogicalScaleX;
 	private	double[]	arrLogicalScaleY;
 	private	boolean	bRunning = false;
+	private	boolean bDrawRequired = false;
 	private	boolean bBlitRequired = false;
 	private	Canvas	canvas = null;
-	private	Function<Turtle,String> draw_function;
-	private	boolean	bOnline = false;
+	private	Function<Canvas,String> draw_function;
+	private	boolean	bCaptureOn = false;
+	private	boolean	bAnimationMode = false;
 	
-	public	TurtleClient(int[]	arrResolution,double[]	arrLogicalScaleX,double[]	arrLogicalScaleY,boolean bOnline)
+	public	TurtleClient(int[]	arrResolution,double[]	arrLogicalScaleX,double[]	arrLogicalScaleY,boolean bCaptureOn)
 	{
 		this.arrResolution = arrResolution.clone();
 		this.arrLogicalScaleX = arrLogicalScaleX.clone();
 		this.arrLogicalScaleY = arrLogicalScaleY.clone();
-		this.bOnline = bOnline;
-		
+		this.bCaptureOn = bCaptureOn;
+        this.canvas = new	Canvas(arrResolution,arrLogicalScaleX,arrLogicalScaleY);
+        this.triggerDraw();
 	}
 
 	public	void runMainLoop() 
@@ -48,9 +51,20 @@ public class TurtleClient {
 	}	
 	
 	
-	public	void	setDrawFunction(Function<Turtle,String> draw_function)
+	public	void	setDrawFunction(Function<Canvas,String> draw_function)
 	{
 		this.draw_function = draw_function;
+	}
+	
+	public	void	triggerDraw()
+	{
+		this.bDrawRequired = true;
+		this.bBlitRequired = true;
+	}
+	
+	public	void	triggerBlit()
+	{
+		this.bBlitRequired = true;
 	}
 	
 	public	void	eventHandling()
@@ -59,23 +73,21 @@ public class TurtleClient {
 	{}
 	public	void	draw()
 	{
-		if (canvas == null)
+		if(this.bDrawRequired)
 		{
-	         canvas = new	Canvas(arrResolution,arrLogicalScaleX,arrLogicalScaleY);
-	         Turtle	t = canvas.createTurtle();
-	         String	name = draw_function.apply(t);
-	         bBlitRequired = true;
-	         
-	         Date date = new	Date();  
-             DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd - hhmmss");
-             String	fName = (bOnline?"":("e:\\turtle exec images\\"+name+"\\"))+name+" - "+ dateFormat.format(date)+".png";
-             File f = new File(fName);
-             if (!bOnline)
-            	 {Paths.get(fName).getParent().toFile().mkdirs();}
-             bBlitRequired = false;
-             canvas.proposeToUpdate(true);
-	         canvas.captureScreenAs(fName);
-	         
+			this.bDrawRequired = false;
+			String	name = draw_function.apply(this.canvas);
+			canvas.proposeToUpdate(true);
+			 
+			if(this.bCaptureOn) 
+			{
+				Date date = new	Date();  
+				DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd - hhmmss");
+				String	fName = "e:\\turtle exec images\\"+name+"\\"+name+" - "+ dateFormat.format(date)+".png";
+				File f = new File(fName);
+				Paths.get(fName).getParent().toFile().mkdirs();
+				canvas.captureScreenAs(fName);
+			}
 		}
 		if(bBlitRequired)
 		{

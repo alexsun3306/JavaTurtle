@@ -1,6 +1,8 @@
 package demo;
 
 import java.awt.Color;
+
+import lib.java_turtle.Canvas;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
@@ -16,8 +18,9 @@ public class TurtleCommandsDemo {
 	
 	
 	
-	public	static	String	command_forward(Turtle turtle)
+	public	static	String	command_forward(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setHeading(0);
 		turtle.home();
@@ -34,8 +37,9 @@ public class TurtleCommandsDemo {
 	}
 	
 	
-	public	static	String	command_setPos(Turtle turtle)
+	public	static	String	command_setPos(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.home();
 		turtle.setPosition(100,100);
 		turtle.setPosition(100,0);
@@ -47,8 +51,9 @@ public class TurtleCommandsDemo {
 	
 	
 	
-	public	static	String	command_setHead(Turtle turtle)
+	public	static	String	command_setHead(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setHeading(0);
 		turtle.forward(80);
@@ -72,8 +77,9 @@ public class TurtleCommandsDemo {
 	
 
 	
-	public	static	String	command_leftright(Turtle turtle)
+	public	static	String	command_leftright(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setHeading(0);
 		turtle.forward(150);
@@ -90,9 +96,9 @@ public class TurtleCommandsDemo {
 	}
 	
 	
-	public	static	String	command_penupdown(Turtle turtle)
+	public	static	String	command_penupdown(Canvas canvas)
 	{
-		
+		Turtle turtle = canvas.createTurtle();
 		turtle.forward(50);
 		
 		//turtle.penUp();
@@ -106,8 +112,9 @@ public class TurtleCommandsDemo {
 		return	turtle.getCallerName();
 	}
 	
-	public	static	String	command_artistic(Turtle turtle)
+	public	static	String	command_artistic(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setHeading(0);
 		
@@ -142,8 +149,9 @@ public class TurtleCommandsDemo {
 	
 	
 
-	public	static	String	command_setPo2(Turtle turtle)
+	public	static	String	command_setPo2(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		//fill color
@@ -185,54 +193,9 @@ public class TurtleCommandsDemo {
 	
 
 	
-	public	static	String	command_fill2(Turtle turtle)
+	public	static	String	command_fill2(Canvas canvas)
 	{
-		turtle.set_use_degrees(true);
-		
-		//fill color
-		//closed shape
-		//begin & end fill
-		turtle.penUp();
-		turtle.setPosition(-100, -100);
-		turtle.penDown();
-		
-		turtle.setFillColor(255, 0, 0);
-		turtle.beginFill();
-		
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		
-		turtle.endFill();
-		
-		turtle.penUp();
-		turtle.setPosition(100, 100);
-		turtle.penDown();
-		
-		
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		turtle.forward(50);
-		turtle.left(90);
-		
-		
-		return	turtle.getCallerName();
-	}
-
-	
-	
-
-	public	static	String	command_fill(Turtle turtle)
-	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		//fill color
@@ -271,13 +234,61 @@ public class TurtleCommandsDemo {
 		turtle.left(90);
 		
 		
+		return	turtle.getCallerName();
+	}
+
+	
+	
+
+	public	static	String	command_fill(Canvas canvas)
+	{
+		Turtle turtle = canvas.createTurtle();
+		turtle.set_use_degrees(true);
+		
+		//fill color
+		//closed shape
+		//begin & end fill
+		turtle.penUp();
+		turtle.setPosition(-100, -100);
+		turtle.penDown();
+		
+		turtle.setFillColor(255, 0, 0);
+		turtle.beginFill();
+		
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		
+		turtle.endFill();
+		
+		turtle.penUp();
+		turtle.setPosition(100, 100);
+		turtle.penDown();
+		
+		
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		turtle.forward(50);
+		turtle.left(90);
+		
+		
 		
 		return	turtle.getCallerName();
 	}
 
 	
-	public	static String	command_circle_1(Turtle turtle)
+	public	static String	command_circle_1(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.setFillColor(255, 0, 0);
 		turtle.circle_stddraw(0, 0, 50, true);
 
@@ -292,8 +303,9 @@ public class TurtleCommandsDemo {
 	
 	
 	
-	public	static String	command_circle_2(Turtle turtle)
+	public	static String	command_circle_2(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		turtle.penUp();
@@ -318,8 +330,9 @@ public class TurtleCommandsDemo {
 		return	turtle.getCallerName();
 	}
 
-	public	static String	command_circle_3a(Turtle turtle)
+	public	static String	command_circle_3a(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		//turtle.beginFill();
@@ -346,8 +359,9 @@ public class TurtleCommandsDemo {
 
 	
 	
-	public	static String	command_circle_3b(Turtle turtle)
+	public	static String	command_circle_3b(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		//turtle.beginFill();
@@ -365,8 +379,9 @@ public class TurtleCommandsDemo {
 	}
 	
 	
-	public	static String	command_circle_3c(Turtle turtle)
+	public	static String	command_circle_3c(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		
 		//turtle.beginFill();
@@ -383,8 +398,9 @@ public class TurtleCommandsDemo {
 	
 	
 
-	public	static String	command_arc(Turtle turtle)
+	public	static String	command_arc(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.set_use_degrees(true);
 		turtle.setPenColor(new Color(255,0,0));
 		/*draw arc center @ turtle position*/
@@ -413,7 +429,7 @@ public class TurtleCommandsDemo {
 		
 		// TODO Auto-generated method stub
 		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
-		tc.setDrawFunction(t->command_arc(t));
+		tc.setDrawFunction(canvas->command_arc(canvas));
 		tc.runMainLoop();
 		
 		

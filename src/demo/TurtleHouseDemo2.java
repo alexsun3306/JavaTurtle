@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
+import lib.java_turtle.Canvas;
 
 public class TurtleHouseDemo2 {
 
@@ -251,8 +252,9 @@ public class TurtleHouseDemo2 {
 	
 	
 	
-	public	static	String	canvas(Turtle turtle)
+	public	static	String	canvas(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		//right_triangle(turtle, 0, 0, 100, 50);
 		//bridge_n(turtle, 30, 30, 30, 30, 30, 3);
 		//stairs(turtle,30,20,5);

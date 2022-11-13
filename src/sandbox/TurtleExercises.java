@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lib.java_turtle.Canvas;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
@@ -28,8 +29,9 @@ public class TurtleExercises {
 	}
 	
 	//test
-	public	static	String	demo(Turtle turtle)
+	public	static	String	demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.setPenRadius(10);
 		turtle.set_use_degrees(true);
 		TurtleExercises.turtle = turtle;
@@ -53,7 +55,7 @@ public class TurtleExercises {
 	{
 		// TODO Auto-generated method stub
 		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
-		tc.setDrawFunction(t->demo(t));
+		tc.setDrawFunction(canvas->demo(canvas));
 		/*
 		tc.setDrawFunction(t->stairs0(t));
 		tc.setDrawFunction(t->stairs1(t));

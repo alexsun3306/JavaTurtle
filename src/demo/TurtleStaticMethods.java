@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lib.java_turtle.Canvas;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
@@ -28,8 +29,9 @@ public class TurtleStaticMethods {
 	}
 	
 	//test
-	public	static	String	demo(Turtle turtle)
+	public	static	String	demo(Canvas canvas)
 	{
+		Turtle turtle = canvas.createTurtle();
 		turtle.setPenRadius(10);
 		turtle.set_use_degrees(true);
 		TurtleStaticMethods.turtle = turtle;
