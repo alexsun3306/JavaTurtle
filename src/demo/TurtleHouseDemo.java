@@ -257,7 +257,7 @@ public class TurtleHouseDemo {
 		//bridge_n(turtle, 30, 30, 30, 30, 30, 3);
 		//stairs(turtle,30,20,5);
 		//door(turtle,50,30);
-		//rainbow(turtle,90,70,30);
+		rainbow(turtle,90,70,30);
 		rectangle(turtle,40,60);
 		return	turtle.getCallerName();
 	}

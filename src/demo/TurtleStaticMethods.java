@@ -1,4 +1,4 @@
-package sandbox;
+package demo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import lib.java_turtle.Turtle;
 import lib.java_turtle.TurtleClient;
 
-public class TurtleExercises {
+public class TurtleStaticMethods {
 
 	
 	private	static	Turtle	turtle;
@@ -32,7 +32,7 @@ public class TurtleExercises {
 	{
 		turtle.setPenRadius(10);
 		turtle.set_use_degrees(true);
-		TurtleExercises.turtle = turtle;
+		TurtleStaticMethods.turtle = turtle;
 
 		for(int i=0;i<6;i++)
 		{

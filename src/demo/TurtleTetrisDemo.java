@@ -143,7 +143,23 @@ public class TurtleTetrisDemo {
 	
 	public	static	String	tetris(Turtle turtle)
 	{
+		for(int i=0;i<9;i++)
+		{
+			turtle.penUp();
+			turtle.setPosition(i%3*100-100,i/3*100-100);
+			turtle.penDown();
+			L(turtle,25);
+			
+		}
+		/*
+		B(turtle,25);
 		I(turtle,50);
+		J(turtle,50);
+		S(turtle,50);
+		Z(turtle,50);
+		*/
+		
+		
 		return	turtle.getCallerName();
 	}
 	
