@@ -243,6 +243,7 @@ public class Turtle {
     	if(this.arrLogicalPos==null){this.arrLogicalPos = arrLogicalPosition.clone();}  
         if (this.bIsPenDown)
         {
+            StdDraw.setPenColor(this.penColor);
             StdDraw.line(this.arrLogicalPos[0], this.arrLogicalPos[1], arrLogicalPosition[0], arrLogicalPosition[1]);
             if (points!=null)
             {

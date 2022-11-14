@@ -1,6 +1,7 @@
 package sandbox;
 
 import java.util.Scanner;
+
 import java.util.ArrayList;
 import java.awt.Color;
 import java.math.*;
@@ -15,31 +16,29 @@ import lib.java_turtle.TurtleClient;
 public class TurtleExercises {
 
 	
-	private	static	Turtle	turtle;
 	
-	
-	public	static	void	forward(double	steps)
-	{
-		turtle.forward(steps);
-	}
-	
-	public	static	void	left(double	angle)
-	{
-		turtle.left(angle);
-	}
 	
 	//test
-	public	static	String	demo(Canvas canvas)
+	public	static	String	animation_engine(Canvas canvas)
 	{
 		Turtle turtle = canvas.createTurtle();
-		turtle.setPenRadius(10);
+		turtle.setPenRadius(0.5);
 		turtle.set_use_degrees(true);
-		TurtleExercises.turtle = turtle;
 
-		for(int i=0;i<6;i++)
+		for(int i=0;i<100000;i++)
 		{
-			forward(50);
-			left(60);
+			canvas.clear();
+			turtle.circle_stddraw((double)i/20.0, false, true);
+
+			canvas.proposeToUpdate(false);
+			try {
+				Thread.sleep(1000/30);
+				System.out.println(i);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 		
 		
@@ -54,8 +53,8 @@ public class TurtleExercises {
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
-		tc.setDrawFunction(canvas->demo(canvas));
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		tc.setDrawFunction(canvas->animation_engine(canvas));
 		/*
 		tc.setDrawFunction(t->stairs0(t));
 		tc.setDrawFunction(t->stairs1(t));

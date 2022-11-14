@@ -22,20 +22,25 @@ public class TurtleStaticMethods {
 	{
 		turtle.forward(steps);
 	}
-	
-	public	static	void	left(double	angle)
+
+	public	static	void	left(double	steps)
 	{
-		turtle.left(angle);
+		turtle.left(steps);
 	}
-	
-	//test
-	public	static	String	demo(Canvas canvas)
-	{
+
+  public static  void  initTurtle(Canvas canvas)
+  {
 		Turtle turtle = canvas.createTurtle();
 		turtle.setPenRadius(10);
 		turtle.set_use_degrees(true);
 		TurtleStaticMethods.turtle = turtle;
+  }
 
+	
+	//test
+	public	static	String	demo(Canvas canvas)
+	{
+    initTurtle(canvas);
 		for(int i=0;i<6;i++)
 		{
 			forward(50);
@@ -54,8 +59,8 @@ public class TurtleStaticMethods {
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},true);
-		tc.setDrawFunction(t->demo(t));
+		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
+		tc.setDrawFunction(canvas->demo(canvas));
 		/*
 		tc.setDrawFunction(t->stairs0(t));
 		tc.setDrawFunction(t->stairs1(t));
