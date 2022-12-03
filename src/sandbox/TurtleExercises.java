@@ -47,6 +47,36 @@ public class TurtleExercises {
 	}
 	
 	
+	
+	//test
+		public	static	String	comp(Canvas canvas)
+		{
+			Turtle turtle = canvas.createTurtle();
+			turtle.setPenRadius(0.5);
+			turtle.set_use_degrees(true);
+			
+			
+			int red;
+			int green;
+			for(int i=0;i<256;i++)
+			{
+				turtle.penUp();
+				turtle.setPosition(i/16*20-150,(i%16*20)-150);
+				turtle.penDown();
+				turtle.setFillColor(i, 255-i, 0);
+				turtle.square(10, true);
+				
+			}
+
+			
+			
+
+			
+			
+			return	turtle.getCallerName();
+		}
+		
+	
 
 	
 	
@@ -54,7 +84,7 @@ public class TurtleExercises {
 	{
 		// TODO Auto-generated method stub
 		TurtleClient tc = new	TurtleClient(new int[] {800, 800}, new double[] {-200,200}, new double[] {-200,200},false);
-		tc.setDrawFunction(canvas->animation_engine(canvas));
+		tc.setDrawFunction(canvas->comp(canvas));
 		/*
 		tc.setDrawFunction(t->stairs0(t));
 		tc.setDrawFunction(t->stairs1(t));

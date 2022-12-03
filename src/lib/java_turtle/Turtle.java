@@ -11,6 +11,8 @@ import lib.edu.princeton.stdlib.StdDraw;
 
 /**
  * A turtle object is like a piece of pen, can draw on canvas while crawing
+ * @author Alexander Sun  
+ * @version 1.0
  * */
 
 public class Turtle {
@@ -21,9 +23,8 @@ public class Turtle {
 	
 	/**
 	 * a reference to the canvas on which the turtle/pen is bond with
-	 * @author Alexander Sun  
 	 * */
-    private	static	Canvas	canvas;
+    public	static	Canvas	canvas;
     
     private double[] arrLogicalPos= null;
     private double heading_in_radians;
@@ -38,13 +39,17 @@ public class Turtle {
     
     private	boolean	b_use_stddraw_arc = false;
     /**
+     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
      * @return true if turtle using stddraw for circle & arc
      * */
     public boolean get_use_stddraw_arc() {
 		return b_use_stddraw_arc;
 	}
+    
+    
     /**
-     * @param true if turtle using stddraw for circle & arc
+     * BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+     * @param b_use_stddraw_arc true if turtle using stddraw for circle & arc
      * */
     public void set_use_stddraw_arc(boolean	b_use_stddraw_arc) {
 		this.b_use_stddraw_arc = b_use_stddraw_arc;
@@ -295,6 +300,7 @@ public class Turtle {
      * */
     public	void	backward(double steps)
     {
+
     	forward(-steps);
     }
     
@@ -306,8 +312,20 @@ public class Turtle {
      * */
     public	void	circle_stddraw(double	x,double	y,double	dRadius,boolean	bFill)
     {
-        if (this.bIsPenDown)
+    	
+    	
+    	
+    	//this is to test whether if pendown
+        if (this.bIsPenDown)//this is to test whether if pendown
         {
+        	
+        	
+        	/*
+        	 * this is to deal with the siutation where the bFill is required
+        	 * also, this block will specify the fill color, pencolor
+        	 * and then it will perform the draw
+        	 * */
+        	
         	if (bFill) 
         	{
                 StdDraw.setPenColor(fillColor);
@@ -316,6 +334,11 @@ public class Turtle {
             	StdDraw.circle(x,y,dRadius);
         	}
         	else {
+            	/*
+            	 * this is to deal with the siutation where the bFill is not required
+            	 * then it will only set pencolor
+            	 * and then it will perform the draw
+            	 * */
             	StdDraw.setPenColor(penColor);
             	StdDraw.circle(x,y,dRadius);
         	}
@@ -391,7 +414,7 @@ public class Turtle {
      * @param a2 end angle of the arc
      * */   
     
-    public	void	arc(double	dRadius,AngleUnit	au,double	a1,double	a2)
+    private	void	arc(double	dRadius,AngleUnit	au,double	a1,double	a2)
     {
     	double[]	pos = this.getPosition();
     	this.arc(pos[0],pos[1],dRadius,au,a1,a2);
@@ -424,6 +447,8 @@ public class Turtle {
     	this.arc(pos[0],pos[1],dRadius,a1,a2);
     }
 
+    
+    
     /*
     public	void	circle_sys(double	dRadius,AngleUnit	au,double	angle)
     {
